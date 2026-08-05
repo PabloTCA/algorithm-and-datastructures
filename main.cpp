@@ -80,6 +80,20 @@ public:
         }
         return 0;
     }
+    vector<string> keys()
+    {
+        vector<string> allKeys;
+        for (int i = 0; i < SIZE; i++)
+        {
+            Node* temp = dataMap[i];
+            while (temp != nullptr)
+            {
+                allKeys.push_back(temp->key);
+                temp = temp->next;
+            }
+        }
+        return allKeys;
+    }
 };
 
 
@@ -95,6 +109,11 @@ int main()
     myHT->set("screw",140);
     myHT->printTable();
     cout << myHT->get("lumber") << endl;
+    vector<string> myKeys = myHT->keys();
+    for (auto key : myKeys)
+    {
+        cout << "My key: " << key << endl;
+    }
 }
 
 
