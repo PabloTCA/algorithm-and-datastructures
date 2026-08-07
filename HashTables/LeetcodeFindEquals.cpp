@@ -42,3 +42,4 @@ int main()
     vector<int> vect2 {2, 4, 5};
     cout << itemInCommon(vect1, vect2) << endl;
 }
+//reconstruction
