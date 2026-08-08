@@ -52,7 +52,19 @@ vector<int> findDuplicates(const vector<int>& nums)
     }
  *
  */
-
+char firstNonRepeatingChar(const string& input_string) {
+    std::unordered_map<char, int> charCount;
+    for (char c : input_string){
+        charCount[c]++;
+    }
+    for (const char& c : input_string){
+        if(charCount[c] == 1)
+        {
+            return c;
+        }
+    }
+    return '\0';
+}
 
 
 int main()
@@ -61,6 +73,10 @@ int main()
     vector<int> expected = {1, 2, 5};
     vector<int> result = findDuplicates(nums);
     sort(result.begin(), result.end());
+
+    string input = "aabbcc";
+    char result = firstNonRepeatingChar(input);
+    std::cout << result << std::endl;
 }
 
 
