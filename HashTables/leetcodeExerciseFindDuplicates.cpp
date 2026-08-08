@@ -35,6 +35,22 @@ vector<int> findDuplicates(const vector<int>& nums)
  *
  * The solution for my bug was just look for it again and assign it true -> duplicated_map[num] = true;
  *  LMAO
+ *
+ *  --------------------------------- Actual Solution from the lesson --------------------------------------------------
+ *      vector<int> findDuplicates(const vector<int>& nums) {
+        unordered_map<int, int> numCounts;
+        for (int num : nums) {
+            numCounts[num]++;
+        }
+        vector<int> duplicates;
+        for (const auto& entry : numCounts) {
+            if (entry.second > 1) {
+                duplicates.push_back(entry.first);
+            }
+        }
+        return duplicates;
+    }
+ *
  */
 
 
