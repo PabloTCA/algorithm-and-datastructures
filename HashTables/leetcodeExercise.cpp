@@ -65,18 +65,44 @@ char firstNonRepeatingChar(const string& input_string) {
     }
     return '\0';
 }
-
+/*
+ * This exercise took me like 3 hours I really didn't know that I could create a
+ * Map with vectors like the <string, vector<string>> and end up making multiple loops for nothing,
+ * I was about to loose all hope TT-TT
+ */
+vector<vector<string>> groupAnagrams(vector<string>& str)
+{
+    unordered_map<string, vector<string>> anagramMap;
+    for (auto& s : str)
+    {
+        string word = s;
+        sort(word.begin(), word.end());
+        anagramMap[word].push_back(s);
+    }
+    vector<vector<string>> groupAnagrams;
+    groupAnagrams.reserve(anagramMap.size());
+    for (auto& word : anagramMap)
+    {
+        groupAnagrams.push_back(word.second);
+    }
+    return groupAnagrams;
+}
 
 int main()
 {
-    vector<int> nums = {1, 2, 3, 2, 1, 4, 5, 6, 5};
-    vector<int> expected = {1, 2, 5};
-    vector<int> result = findDuplicates(nums);
-    sort(result.begin(), result.end());
+    // vector<int> nums = {1, 2, 3, 2, 1, 4, 5, 6, 5};
+    // vector<int> expected = {1, 2, 5};
+    // vector<int> result = findDuplicates(nums);
+    // sort(result.begin(), result.end());
+    //
+    // string input = "aabbcc";
+    // char result = firstNonRepeatingChar(input);
+    // std::cout << result << std::endl;
 
-    string input = "aabbcc";
-    char result = firstNonRepeatingChar(input);
-    std::cout << result << std::endl;
+    std::string sort_string = "eat";
+    // sort_string = sort_string.substr(0, sort_string.length() - 1);
+    std::cout << sort_string << std::endl;
+
 }
 
 
