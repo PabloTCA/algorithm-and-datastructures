@@ -99,9 +99,9 @@ int main()
     // char result = firstNonRepeatingChar(input);
     // std::cout << result << std::endl;
 
-    std::string sort_string = "eat";
+    // std::string sort_string = "eat";
     // sort_string = sort_string.substr(0, sort_string.length() - 1);
-    std::cout << sort_string << std::endl;
+    // std::cout << sort_string << std::endl;
 
 }
 
