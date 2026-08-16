@@ -110,6 +110,21 @@ vector<int> twoSum(const vector<int>& nums, int target) {
     }
     return {};
 }
+vector<int> subarraySum(const vector<int>& nums, int target)
+{
+    std::unordered_map<int, int> sumIndex;
+    sumIndex[0] = -1;
+    int currentSum = 0;
+    for (int i = 0; i < nums.size(); i++)
+    {
+        currentSum += nums[i];
+        if(sumIndex.find(currentSum - target) != sumIndex.end()){
+            return {sumIndex[currentSum - target] + 1, i};
+        }
+        sumIndex[currentSum] = i;
+    }
+    return {};
+}
 
 int main()
 {
