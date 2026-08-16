@@ -89,7 +89,7 @@ vector<vector<string>> groupAnagrams(vector<string>& str)
 }
 
 /*
- * This one was hard yoo, well I also didin't had much time this week to put all my mind into the exercise u.u
+ * This one was hard yoo, well I also didn't had much time this week to put all my mind into the exercise u.u
  * Hope next week I can have more time. At the end I had to use a lot of help from the internet to solve this exercise
  * and from the hints in the exercise. *sad*
  *
@@ -110,6 +110,17 @@ vector<int> twoSum(const vector<int>& nums, int target) {
     }
     return {};
 }
+
+/**
+ *
+ * @param nums a vector of integers
+ * @param target the target sum
+ * @return a vector containing the indices of the two numbers that add up to the target
+ *
+ * I was able to get soo close to the solution with my pseudocode, but I couldn't figure out how to implement it.
+ * In the end I had to use a lot of help from the internet to solve this exercise and from the hints in the exercise.
+ * But after looking at the solution, I was able to understand it better.
+ */
 vector<int> subarraySum(const vector<int>& nums, int target)
 {
     std::unordered_map<int, int> sumIndex;
