@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <unordered_set>
 
 using namespace std;
 
@@ -135,6 +136,27 @@ vector<int> subarraySum(const vector<int>& nums, int target)
         sumIndex[currentSum] = i;
     }
     return {};
+}
+
+/*
+ *  Here is the first exercise with sets
+ *  The exercise is about creating a function to remove duplicates
+ *  In this function we use a set to remove duplicates from a vector
+ */
+namespace sets
+{
+    vector<int> removeDuplicates(const vector<int>& myList) {
+        unordered_set<int> uniqueSet;
+        for(auto num : myList){
+            uniqueSet.insert(num);
+        }
+        std::vector<int> returnList;
+        for(auto i = uniqueSet.begin(); i != uniqueSet.end(); ++i){
+            returnList.push_back(*i);
+            cout << *i << '\n';
+        }
+        return returnList;
+    }
 }
 
 int main()
