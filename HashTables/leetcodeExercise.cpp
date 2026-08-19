@@ -157,6 +157,39 @@ namespace sets
         }
         return returnList;
     }
+
+    /*
+     *  This is the solution I came with, simple, just add everything and then compare, and if the sizes are equal,
+     *  then return true, otherwise return false.
+     */
+    bool hasUniqueCharsOwn(const string& str)
+    {
+        unordered_set<char> uniqueSet;
+        for (const char c : str)
+        {
+            uniqueSet.insert(c);
+        }
+        return uniqueSet.size() == str.length();
+    }
+    /*
+     *  The following solution is the actual way to do it, is slightly more efficient overall better algorithm,
+     *  because it return false as soon as detects a duplicate.
+     *  To be honest, it's better because it doesn't need to iterate through the entire string.
+     *  I was close hehe.
+     */
+    bool hasUniqueChars(const string& str)
+    {
+        unordered_set<char> uniqueChar;
+        for (const char c : str)
+        {
+            if (uniqueChar.find(c) != uniqueChar.end())
+            {
+                return false;
+            }
+            uniqueChar.insert(c);
+        }
+        return true;
+    }
 }
 
 int main()
