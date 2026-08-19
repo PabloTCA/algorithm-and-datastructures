@@ -190,6 +190,48 @@ namespace sets
         }
         return true;
     }
+
+    /*
+     *  Here I did two of the same function but with a little bit of a different approach,
+     *  first (the commented function) is without dereferencing.
+     *  The second one is with dereferencing.
+     */
+    // vector<vector<int>> findPairs(const vector<int>& arr1, const vector<int>& arr2, int target)
+    // {
+    //     unordered_set<int> mySet;
+    //     vector<vector<int>> pairs;
+    //     for (const int& num : arr1)
+    //     {
+    //         mySet.insert(num);
+    //     }
+    //     for (const int& num : arr2)
+    //     {
+    //         const int complement = target - num;
+    //         if (mySet.find(complement) != mySet.end())
+    //         {
+    //             pairs.push_back({complement, num});
+    //         }
+    //     }
+    //     return pairs;
+    // }
+    vector<vector<int>> findPairs(const vector<int>& arr1, const vector<int>& arr2, int target)
+    {
+        unordered_set<int> mySet;
+        vector<vector<int>> pairs;
+        for (const int& num : arr1)
+        {
+            mySet.insert(num);
+        }
+        for (const int& num : arr2)
+        {
+            const auto complement = mySet.find(target - num);
+            if (complement!= mySet.end())
+            {
+                pairs.push_back({*complement, num});
+            }
+        }
+        return pairs;
+    }
 }
 
 int main()
