@@ -232,7 +232,61 @@ namespace sets
         }
         return pairs;
     }
+
+    /*
+     *  The exercise is to find the longest consecutive sequence in a vector of integers.
+     *  This function is my answer to the problem.
+     */
+    int longestConsecutiveSequenceOwn(vector<int> nums)
+    {
+        unordered_set<int> numSet;
+        for (const int& num : nums){
+            numSet.insert(num);
+        }
+        int longestStreak = 0;
+        for(const int& num : nums){
+            int i = 1;
+            int streak = 1;
+            while(numSet.find(num + i) != numSet.end()){
+                streak++;
+                i++;
+            }
+            if(streak > longestStreak){
+                longestStreak = streak;
+            }
+        }
+        return longestStreak;
+    }
+    /*
+     *  This function is the actual answer to the problem.
+     *
+     *  In my opinion this answer is more refined. Also this answer is more efficient. It does not iterate through the entire set for each number.
+     *  It checks if the current number is at the start of a sequence.
+     */
+    int longestConsecutiveSequence(vector<int> nums)
+    {
+        unordered_set<int> numSet(nums.begin(),nums.end());
+        int longestStreak = 0;
+
+        for (int num : numSet)
+        {
+
+            if (numSet.find(num - 1) == numSet.end())
+            {
+                int currentNum = num;
+                int currentStreak = 1;
+                while (numSet.find(currentNum + 1) != numSet.end())
+                {
+                    currentNum++;
+                    currentStreak++;
+                }
+                longestStreak = max(longestStreak, currentStreak);
+            }
+        }
+        return longestStreak;
+    }
 }
+
 
 int main()
 {
