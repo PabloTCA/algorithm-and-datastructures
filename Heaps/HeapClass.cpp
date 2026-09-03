@@ -161,6 +161,32 @@ public:
         }
         return minValue;
     }
+    void sinkDown(int index)
+    {
+        int minIndex = index;
+        while (true)
+        {
+            int leftIndex = leftChild(index);
+            int rightIndex = rightChild(index);
+            if (leftIndex < heap.size() && heap[leftIndex] < heap[minIndex])
+            {
+                minIndex = leftIndex;
+            }
+            if (rightIndex < heap.size() && heap[rightIndex] < heap[minIndex])
+            {
+                minIndex = rightIndex;
+            }
+            if (minIndex != index)
+            {
+                swap(index, minIndex);
+                index = minIndex;
+            }
+            else
+            {
+                return;
+            }
+        }
+    }
 };
 
 
