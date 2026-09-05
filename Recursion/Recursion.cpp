@@ -86,6 +86,36 @@ namespace rBST
         {
             return rContains(root, value);
         }
+        /**
+         *    Binary Search Tree
+         *    Insert method but recursive
+         *    @params currentNode, value
+         *    @return currentNode
+         *    @params value
+         *    @return void
+         *
+         */
+        Node* rInsert(Node* currentNode, int value)
+        {
+            if (currentNode == nullptr)
+            {
+                return new Node(value);
+            }
+            if (value < currentNode -> value)
+            {
+                currentNode->left = rInsert(currentNode->left, value);
+            }
+            else if (value > currentNode -> value)
+            {
+                currentNode->right = rInsert(currentNode->right, value);
+            }
+            return currentNode;
+        }
+        void rInsert(int value)
+        {
+            if (root == nullptr) root = new Node(value);
+            rInsert(root, value);
+        }
 
     };
 }
@@ -96,13 +126,13 @@ int main()
     std::cout << factorial(5) << std::endl;
 
     rBST::BinarySearchTree* myBST = new rBST::BinarySearchTree();
-    myBST->insert(47);
-    myBST->insert(21);
-    myBST->insert(76);
-    myBST->insert(18);
-    myBST->insert(27);
-    myBST->insert(52);
-    myBST->insert(82);
+    myBST->rInsert(47);
+    myBST->rInsert(21);
+    myBST->rInsert(76);
+    myBST->rInsert(18);
+    myBST->rInsert(27);
+    myBST->rInsert(52);
+    myBST->rInsert(82);
     std::cout << "Contains 27:\n";
     std::cout << myBST->rContains(27) << "\n";
 
