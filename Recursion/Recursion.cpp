@@ -116,6 +116,78 @@ namespace rBST
             if (root == nullptr) root = new Node(value);
             rInsert(root, value);
         }
+        Node* deleteNode(Node* currentNode, int value)
+        {
+            if (currentNode == nullptr) return nullptr;
+            if (value < currentNode -> value)
+            {
+                currentNode->left = deleteNode(currentNode->left, value);
+            }
+            else if (value > currentNode->value)
+            {
+                currentNode->right = deleteNode(currentNode->right, value);
+            }
+            else
+            {
+                //4 Cases
+                /** The first 3 cases are here
+                 * 1st Delete a node that is a leaf node
+                 * 2nd Delete a node that has a node on the right and is open on the left
+                 * 3rd Delete a node that has a node on the left and is open on the right
+                 */
+                // 1st Case
+                if (currentNode->left == nullptr && currentNode->right == nullptr)
+                {
+                    delete currentNode;
+                    return nullptr;
+                }
+                // 2nd Case
+                else if (currentNode->left == nullptr)
+                {
+                    Node* temp = currentNode->right;
+                    delete(currentNode);
+                    return temp;
+                }
+                // 3rd Case
+                else if (currentNode->right == nullptr)
+                {
+                    Node* temp = currentNode->left;
+                    delete(currentNode);
+                    return temp;
+                }
+                // 4th Case when we delete a node that has a child on the left and the right
+                else
+                {
+                    int subTreeMin = minValue(currentNode->right);
+                    currentNode->value = subTreeMin;
+                    currentNode->right = deleteNode(currentNode->right, subTreeMin);
+                }
+
+            }
+            return currentNode;
+        }
+        void deleteNode(int value)
+        {
+            root = deleteNode(root, value);
+        }
+
+        /**
+         * ------------Helper function that finds a minimum value----------------
+         *  How to write a function that finds the minimum value?
+         *  Well since we are in binary search trees we can simply travel all the way to the left
+         *  and eventually we will find the minimum value that it will be one before nullptr.
+         *  function name: minValue
+         *  @params: Node* currentNode
+         *  @return: int currentNode->value
+         */
+        int minValue(Node* currentNode)
+        {
+            while (currentNode->left != nullptr)
+            {
+                currentNode = currentNode->left;
+            }
+            return currentNode->value;
+        }
 
     };
 }
@@ -135,9 +207,14 @@ int main()
     myBST->rInsert(82);
     std::cout << "Contains 27:\n";
     std::cout << myBST->rContains(27) << "\n";
+    std::cout << "Min Value: " <<myBST->minValue(myBST->root) << "\n";
 
     std::cout << "Contains 17:\n";
     std::cout << myBST->rContains(17) << std::endl;
+
+    std::cout << "Min Value root right: " <<myBST->minValue(myBST->root->right) << "\n";
+    myBST->deleteNode(18);
+    std::cout << "Min Value root: " <<myBST->minValue(myBST->root) << "\n";
 
     return 0;
 }
