@@ -2,8 +2,9 @@
 // Created by Pablo Chávez on 12/09/26.
 //
 
-#ifndef DATASTRUCTUREANDALGORITHMS_BFS_H
-#define DATASTRUCTUREANDALGORITHMS_BFS_H
+#ifndef DATASTRUCTUREANDALGORITHMS_TREETRAVERSAL_H
+#define DATASTRUCTUREANDALGORITHMS_TREETRAVERSAL_H
+
 
 
 #include <iostream>
@@ -73,6 +74,10 @@ public:
         }
     }
 
+    /**
+     * Tree Traversal: Breadth-First Search (BFS)
+     * Function to perform Breadth-First Search (BFS) traversal of a binary tree.
+     */
     void BFS()
     {
         if (root == nullptr) return;
@@ -98,6 +103,26 @@ public:
             }
         }
     }
+
+    /**
+     *  Tree Traversal: Depth-First Search (DFS) - PreOrder
+     *  Function to perform Depth-First Search (DFS) traversal of a binary tree in pre-order.
+     */
+    void DFSPreOrder(Node* currentNode)
+    {
+        std::cout << currentNode->value << " ";
+        if (currentNode->left != nullptr)
+        {
+            DFSPreOrder(currentNode->left);
+        }
+        if (currentNode->right != nullptr)
+        {
+            DFSPreOrder(currentNode->right);
+        }
+        
+    }
+    void DFSPreOrder() {DFSPreOrder(root);}
 };
 
-#endif //DATASTRUCTUREANDALGORITHMS_BFS_H
+
+#endif //DATASTRUCTUREANDALGORITHMS_TREETRAVERSAL_H

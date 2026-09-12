@@ -1,5 +1,5 @@
 #include <iostream>
-#include "TreeTraversal/BFS/bfs.h"
+#include "TreeTraversal/TreeTraversal.h"
 int main()
 {
     BinarySearchTree* myBST = new BinarySearchTree();
@@ -11,5 +11,7 @@ int main()
     myBST->insert(52);
     myBST->insert(82);
     myBST->BFS();
+    std::cout << "\n";
+    myBST->DFSPreOrder();
 }
 
