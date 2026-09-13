@@ -119,9 +119,46 @@ public:
         {
             DFSPreOrder(currentNode->right);
         }
-        
+
     }
     void DFSPreOrder() {DFSPreOrder(root);}
+
+    /**
+     *  Tree Traversal: Depth-First Search (DFS) - PostOrder
+     *  Function to perform Depth-First Search (DFS) traversal of a binary tree in post-order.
+     */
+    void DFSPostOrder(Node* currentNode)
+    {
+        if (currentNode->left != nullptr)
+        {
+            DFSPostOrder(currentNode->left);
+        }
+        if (currentNode->right != nullptr)
+        {
+            DFSPostOrder(currentNode->right);
+        }
+        std::cout << currentNode->value << " "; // The only change is this line instead of being at the top is here at the bottom
+    }
+    void DFSPostOrder() {DFSPostOrder(root);}
+
+    /**
+     *  Tree Traversal: Depth-First Search (DFS) - InOrder
+     *  Function to perform Depth-First Search (DFS) traversal of a binary tree in in-order
+     */
+    void DFSInOrder(Node* currentNode)
+    {
+        if (currentNode->left != nullptr)
+        {
+            DFSInOrder(currentNode->left);
+        }
+        std::cout << currentNode->value << " ";
+        if (currentNode->right != nullptr)
+        {
+            DFSInOrder(currentNode->right);
+        }
+    }
+    void DFSInOrder() {DFSInOrder(root);}
+
 };
 
 

@@ -13,5 +13,9 @@ int main()
     myBST->BFS();
     std::cout << "\n";
     myBST->DFSPreOrder();
+    std::cout << "\n";
+    myBST->DFSPostOrder();
+    std::cout << "\n";
+    myBST->DFSInOrder();
 }
 
