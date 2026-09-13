@@ -1,7 +1,9 @@
 #include <iostream>
 #include "TreeTraversal/TreeTraversal.h"
+#include "BasicSorts/basic_sorts.h"
 int main()
 {
+    /*
     BinarySearchTree* myBST = new BinarySearchTree();
     myBST->insert(47);
     myBST->insert(21);
@@ -17,5 +19,22 @@ int main()
     myBST->DFSPostOrder();
     std::cout << "\n";
     myBST->DFSInOrder();
+    */
+
+    int myArray[] = { 6, 4, 2, 5, 1, 3};
+    int size = sizeof(myArray) / sizeof(myArray[0]);
+
+    for (auto value : myArray)
+    {
+        std::cout << value << " ";
+    }
+    std::cout << "\n";
+    basic_sorts bs;
+    // bs.bubbleSort(myArray, size);
+    bs.selectionSort(myArray, size);
+    for (auto value : myArray)
+    {
+        std::cout << value << " ";
+    }
 }
 
