@@ -31,7 +31,8 @@ int main()
     std::cout << "\n";
     basic_sorts bs;
     // bs.bubbleSort(myArray, size);
-    bs.selectionSort(myArray, size);
+    // bs.selectionSort(myArray, size);
+    bs.insertionSort(myArray, size);
     for (auto value : myArray)
     {
         std::cout << value << " ";
