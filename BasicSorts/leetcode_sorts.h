@@ -119,6 +119,31 @@ public:
             sortedUntil = current;
         }
     }
+    void selectionSort()
+    {
+        if (length < 2) return;
+        Node* current = head;
+        while (current->next != nullptr)
+        {
+            Node* smallestNode = current;
+            Node* innerCurrentNode = current->next;
+            while (innerCurrentNode != nullptr)
+            {
+                if (innerCurrentNode->value < smallestNode->value)
+                {
+                    smallestNode = innerCurrentNode;
+                }
+                innerCurrentNode = innerCurrentNode->next;
+            }
+            if (smallestNode != current)
+            {
+                int temp = current->value;
+                current->value = smallestNode->value;
+                smallestNode->value = temp;
+            }
+            current = current->next;
+        }
+    }
 };
 
 
