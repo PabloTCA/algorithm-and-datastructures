@@ -144,6 +144,40 @@ public:
             current = current->next;
         }
     }
+    void insertionSort()
+    {
+        if (length < 2) return;
+        Node* sortedListHead = head;
+        Node* unsortedListHead = head->next;
+        sortedListHead->next = nullptr;
+        while (unsortedListHead != nullptr)
+        {
+            Node* current = unsortedListHead;
+            unsortedListHead = unsortedListHead->next;
+            if (current->value < sortedListHead->value)
+            {
+                current->next = sortedListHead;
+                sortedListHead = current;
+            }
+            else
+            {
+                Node* searchPointer = sortedListHead;
+                while (searchPointer->next != nullptr && current->value > searchPointer->next->value)
+                {
+                    searchPointer = searchPointer->next;
+                }
+                current->next = searchPointer->next;
+                searchPointer->next = current;
+            }
+        }
+        head = sortedListHead;
+        Node* temp = head;
+        while (temp->next != nullptr)
+        {
+            temp = temp->next;
+        }
+        tail = temp;
+    }
 };
 
 
