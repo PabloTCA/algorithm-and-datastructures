@@ -1,6 +1,7 @@
 #include <iostream>
 #include "TreeTraversal/TreeTraversal.h"
 #include "BasicSorts/basic_sorts.h"
+#include "MergeSort/mergeSort.h"
 int main()
 {
     /*
@@ -22,20 +23,32 @@ int main()
     */
 
     int myArray[] = { 6, 4, 2, 5, 1, 3};
+    // int myArray[] = { 1, 3, 7, 8, 2, 4, 5, 6};
     int size = sizeof(myArray) / sizeof(myArray[0]);
+    //merge
+    int leftIndex = 0;
+    int rightIndex = size - 1;
+    int midIndex = (size / 2) - 1;
+    merge(myArray, leftIndex, midIndex, rightIndex);
 
     for (auto value : myArray)
     {
         std::cout << value << " ";
     }
-    std::cout << "\n";
-    basic_sorts bs;
-    // bs.bubbleSort(myArray, size);
-    // bs.selectionSort(myArray, size);
-    bs.insertionSort(myArray, size);
-    for (auto value : myArray)
-    {
-        std::cout << value << " ";
-    }
+
+
+    // for (auto value : myArray)
+    // {
+    //     std::cout << value << " ";
+    // }
+    // std::cout << "\n";
+    // basic_sorts bs;
+    // // bs.bubbleSort(myArray, size);
+    // // bs.selectionSort(myArray, size);
+    // bs.insertionSort(myArray, size);
+    // for (auto value : myArray)
+    // {
+    //     std::cout << value << " ";
+    // }
 }
 
