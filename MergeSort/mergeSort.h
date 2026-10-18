@@ -5,7 +5,7 @@
 #ifndef DATASTRUCTUREANDALGORITHMS_MERGESORT_H
 #define DATASTRUCTUREANDALGORITHMS_MERGESORT_H
 
-
+// Merge Helper Function
 void merge(int array[], int leftIndex, int midIndex, int rightIndex)
 {
     // Merge function first part
@@ -56,8 +56,26 @@ void merge(int array[], int leftIndex, int midIndex, int rightIndex)
         index++;
         j++;
     }
-
 }
 
+/*
+ * MergeSort
+ * First: MergeSort will break arrays in half
+ * Second: BASE CASE: When sub-array size is 1
+ * Third: MergeSort will call merge() function to put sub-arrays together
+ * --MergeSort will recursively call itself to break arrays in half--
+ *
+ *
+*/
+
+void mergeSort(int array[], int leftIndex, int rightIndex)
+{
+    if (leftIndex >= rightIndex) return;
+    int midIndex = leftIndex + (rightIndex - leftIndex) / 2;
+    mergeSort(array, leftIndex, midIndex);
+    mergeSort(array, midIndex + 1, rightIndex);
+
+    merge(array, leftIndex, midIndex, rightIndex);
+}
 
 #endif //DATASTRUCTUREANDALGORITHMS_MERGESORT_H
