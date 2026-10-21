@@ -29,8 +29,8 @@ int main()
     int leftIndex = 0;
     int rightIndex = size - 1;
     int midIndex = (size / 2) - 1;
-    merge(myArray, leftIndex, midIndex, rightIndex);
-
+    // merge(myArray, leftIndex, midIndex, rightIndex);
+    mergeSort(myArray, leftIndex, rightIndex);
     for (auto value : myArray)
     {
         std::cout << value << " ";
