@@ -109,6 +109,47 @@ public:
     }
 
     // LEET CODE merge function
+    void merge(LinkedList& otherList)
+    {
+        Node* otherHead = otherList.getHead();
+        Node* dummy = new Node(0);
+        Node* current = dummy;
+        while (head != nullptr && otherHead != nullptr)
+        {
+            if (head->value < otherHead->value)
+            {
+                current->next = head;
+                head = head->next;
+            } else
+            {
+                current->next = otherHead;
+                otherHead = otherHead->next;
+            }
+            current = current->next;
+        }
+        if (head != nullptr)
+        {
+            current->next = head;
+            while (current->next != nullptr)
+            {
+                current = current->next;
+            }
+        } else
+        {
+            current->next = otherHead;
+            while (current->next != nullptr)
+            {
+                current = current->next;
+            }
+        }
+        tail = current;
+        head = dummy->next;
+        delete dummy;
+        length += otherList.getLength();
+        otherList.head = nullptr;
+        otherList.tail = nullptr;
+        otherList.length = 0;
+    }
 };
 
 
