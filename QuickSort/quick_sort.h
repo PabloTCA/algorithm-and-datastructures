@@ -29,6 +29,13 @@ class quick_sort
         swap(array, pivotIndex, swapIndex);
         return swapIndex;
     }
+    void quickSort(int array[], int leftIndex, int rightIndex)
+    {
+        if (leftIndex >= rightIndex) return;
+        int pivotIndex = pivot(array, leftIndex, rightIndex);
+        quickSort(array, leftIndex, pivotIndex - 1);
+        quickSort(array, pivotIndex + 1, rightIndex);
+    }
 };
 
 
