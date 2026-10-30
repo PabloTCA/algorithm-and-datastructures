@@ -41,6 +41,8 @@ int main()
     int n = 30;
     std::cout << "\nFib of " << n << " = " << fib.fib(n) << "\n";
     std::cout << "\nFibonacci counter: " << fib.counter << "\n";
+    std::cout << "\nFibMemo of " << n << " = " << fib.fibMemo(n) << "\n";
+    std::cout << "\nFibonacci memo counter: " << fib.memoCounter << "\n";
 
     // for (auto value : myArray)
     // {
