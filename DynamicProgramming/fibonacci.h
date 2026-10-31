@@ -21,6 +21,9 @@ public:
        return fib(n - 1) + fib(n - 2);
     }
 
+    // Same function as fib but with memoization
+    // Memoization is a technique used to optimize recursive algorithms by storing the results of
+    // expensive function calls and reusing them when the same inputs occur again.
     int memoCounter = 0;
     std::vector<int> memo = std::vector<int>(100, -1);
     int fibMemo(int n)
