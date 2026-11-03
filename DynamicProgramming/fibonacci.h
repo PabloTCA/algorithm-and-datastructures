@@ -34,6 +34,24 @@ public:
         memoCounter++;
         return memo[n];
     }
+
+    // Fib function but using another method called, bottom up.
+    // Bottom up mean that we are solving the problem from the bottom until the top.
+    // More efficient (O(n)).
+    int bottomCounter = 0;
+    int fibBottom(int n)
+    {
+        std::vector<int> fibList;
+        fibList.push_back(0);
+        fibList.push_back(1);
+
+        for (int index = 2; index <= n; index++)
+        {
+            bottomCounter++;
+            fibList.push_back(fibList[index - 1] + fibList[index - 2]);
+        }
+        return fibList[n];
+    }
 };
 
 
