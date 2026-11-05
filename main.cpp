@@ -4,27 +4,13 @@
 #include "MergeSort/mergeSort.h"
 #include "DynamicProgramming/fibonacci.h"
 #include <vector>
-
-void removeElement(std::vector<int>& nums, int val)
-{
-    int j = 0;
-    int i = 0;
-    while(j < nums.size())
-    {
-        if (nums[j] != val)
-        {
-            nums[i] = nums[j];
-            i++;
-        }
-        j++;
-    }
-    nums.resize(i);
-}
+#include "Vectors/vectorLeetCode.h"
 int main()
 {
+    vectorLeetCode v;
     std::vector<int> nums = {3, 2, 3, 6, 3, 4, 5, 3};
-    removeElement(nums, 3);
-    for (auto value : nums)
+    v.removeElement(nums, 3);
+    for (const auto value : nums)
     {
         std::cout << value << " ";
     }
