@@ -1,15 +1,17 @@
 //
 // Created by Pablo Chávez on 04/11/26.
 //
-#include <vector>
 #ifndef DATASTRUCTUREANDALGORITHMS_VECTORLEETCODE_H
 #define DATASTRUCTUREANDALGORITHMS_VECTORLEETCODE_H
 
 
+#include <vector>
+#include <string>
+
 class vectorLeetCode
 {
 public:
-    void removeElement(std::vector<int>&nums, int val)
+    static void removeElement(std::vector<int>&nums, int val)
     {
         int i = 0, j = 0;
         while (j < nums.size())
@@ -24,7 +26,7 @@ public:
         nums.resize(i);
     }
 
-    std::vector<int> findMaxMin(const std::vector<int>& myList)
+    static std::vector<int> findMaxMin(const std::vector<int>& myList)
     {
         if (myList.empty()) return {};
         int max = myList[0], min = myList[0];
@@ -35,6 +37,18 @@ public:
             else if (myList[i] <= min) min = myList[i];
         }
         return {max, min};
+    }
+    static std::string findLongestString(std::vector<std::string>& stringList )
+    {
+        std::string longest_string;
+        for (auto& str : stringList)
+        {
+            if (str.length() > longest_string.length())
+            {
+                longest_string = str;
+            }
+        }
+        return longest_string;
     }
 };
 
