@@ -66,6 +66,20 @@ public:
         }
         return writePointer;
     }
+
+    static int maxProfit(std::vector<int>& prices)
+    {
+        int minPrice = INT_MAX;
+        int maxProfit = 0;
+
+        for (int price : prices)
+        {
+            minPrice = std::min(minPrice, price);
+            int profit = price - minPrice;
+            maxProfit = std::max(maxProfit, profit);
+        }
+        return maxProfit;
+    }
 };
 
 
