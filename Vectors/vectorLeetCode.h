@@ -80,6 +80,32 @@ public:
         }
         return maxProfit;
     }
+
+    static void rotate(std::vector<int>& nums, int k)
+    {
+        if (nums.empty()) return;
+
+        k %= nums.size();
+
+        for (int start = 0, end = nums.size() - k - 1; start < end; start++, end--)
+        {
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+        }
+        for (int start = nums.size() - k, end = nums.size() - 1; start < end; start++, end--)
+        {
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+        }
+        for (int start = 0, end = nums.size() - 1; start < end; start++, end--)
+        {
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+        }
+    }
 };
 
 
